@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pull Request Demo</title>
+    <link th:href = "@{style.css}" rel="stylesheet">
+
+</head>
+<h1>Pull Requests</h1>
+<body>
+<table id="pr">
+    <tr>
+        <th>PR ID</th>
+        <th>Assignee</th>
+        <th>Body</th>
+        <th>Commits</th>
+        <th>Created At</th>
+        <th>Merged</th>
+        <th>PR Body</th>
+        <th>State</th>
+        <th>Title</th>
+        <th>User</th>
+    </tr>
+    <tr th:each="pullRequest : ${pullRequests}">
+        <td th:text="${pullRequest.id}"></td>
+        <td th:text="${pullRequest.assignee}"></td>
+        <td th:text="${pullRequest.requestBody}"></td>
+        <td th:text="${pullRequest.commits}"></td>
+        <td th:text="${pullRequest.createdAt}"></td>
+        <td th:text="${pullRequest.merged}"></td>
+        <td th:text="${pullRequest.state}"></td>
+        <td th:text="${pullRequest.title}"></td>
+        <td th:text="${pullRequest.user}"></td>
+
+    </tr>
+
+</table>
+
+<button onClick="window.location.reload();">Refresh</button>
+</body>
+</html>
