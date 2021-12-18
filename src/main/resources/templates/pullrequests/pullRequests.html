@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Pull Request Demo</title>
-    <link th:href = "@{style.css}" rel="stylesheet">
-
+    <link rel="stylesheet" th:href="@{style.css}">
 </head>
-<h1>Pull Requests</h1>
 <body>
+<h1>Pull Requests</h1>
 <table id="pr">
     <tr>
         <th>PR ID</th>
+        <th>User</th>
         <th>Assignee</th>
         <th>Body</th>
         <th>Commits</th>
         <th>Created At</th>
         <th>Merged</th>
-        <th>PR Body</th>
         <th>State</th>
         <th>Title</th>
-        <th>User</th>
+        <th>Image</th>
     </tr>
     <tr th:each="pullRequest : ${pullRequests}">
         <td th:text="${pullRequest.id}"></td>
+        <td th:text="${pullRequest.user}"></td>
         <td th:text="${pullRequest.assignee}"></td>
         <td th:text="${pullRequest.requestBody}"></td>
         <td th:text="${pullRequest.commits}"></td>
@@ -30,12 +30,9 @@
         <td th:text="${pullRequest.merged}"></td>
         <td th:text="${pullRequest.state}"></td>
         <td th:text="${pullRequest.title}"></td>
-        <td th:text="${pullRequest.user}"></td>
-
+        <td><a th:href="@{'/images/'+${pullRequest.id}+'.jpg'}">image</a></td>
     </tr>
-
 </table>
-
 <button onClick="window.location.reload();">Refresh</button>
 </body>
 </html>

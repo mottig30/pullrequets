@@ -23,7 +23,6 @@ public class ValidatePullRequestEvent {
         }
         return Optional.empty();
     }
-
     private Optional<String> createMessage(String... params){
         return Optional.of(String.join(SPACE_DELIMITER, params));
     }
